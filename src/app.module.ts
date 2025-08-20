@@ -5,12 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { NotesModule } from './notes/notes.module';
-import { FirebaseAdminModule } from './auth/firebase.module';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
-
 
 @Module({
   imports: [
@@ -21,9 +17,6 @@ import { ConfigModule } from '@nestjs/config';
       playground: true,
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI!),
-    FirebaseAdminModule,
-    UsersModule,
-    AuthModule,
     RecipesModule,
     NotesModule,
   ],
