@@ -31,6 +31,14 @@
 $ npm install
 ```
 
+### Environment
+
+Create a `.env` file in the project root with:
+
+```
+MONGODB_URI=mongodb://localhost:27017/recipebook
+```
+
 ## Compile and run the project
 
 ```bash
