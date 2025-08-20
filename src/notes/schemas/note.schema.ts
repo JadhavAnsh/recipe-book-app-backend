@@ -6,6 +6,9 @@ export class Notes {
   @Prop({ type: Types.ObjectId, required: true, ref: 'RecipeMongo' })
   recipeId: Types.ObjectId;
 
+  @Prop({ type: String, required: true, index: true })
+  userId: string;
+
   @Prop({ type: String, required: true })
   text: string;
 }
