@@ -54,8 +54,8 @@ export class RecipesService {
     return this.mapDocToRecipe(doc);
   }
 
-  async findByCategory(category: string): Promise<Recipe[]> {
-    const docs = await this.recipeModel.find({ category }).exec();
+  async findByCategory(categoryId: string): Promise<Recipe[]> {
+    const docs = await this.recipeModel.find({ categoryId }).exec();
     return docs.map((d) => this.mapDocToRecipe(d));
   }
 
