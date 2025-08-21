@@ -15,6 +15,18 @@ export class Recipes {
   @Prop({ required: true })
   category: string;
 
+  @Prop({ required: false })
+  categoryId?: string;
+
+  @Prop({ type: Number, default: 0 })
+  prepTime: number;
+
+  @Prop({ type: Number, default: 0 })
+  cookTime: number;
+
+  @Prop({ type: Number, default: 1 })
+  servings: number;
+
   @Prop({ type: String, required: false, default: null })
   image?: string | null;
 }

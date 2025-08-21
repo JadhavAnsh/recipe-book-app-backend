@@ -17,6 +17,18 @@ export class UpdateRecipeInput {
   @Field({ nullable: true })
   category?: string;
 
+  @Field({ nullable: true })
+  categoryId?: string;
+
+  @Field(() => Number, { nullable: true })
+  prepTime?: number;
+
+  @Field(() => Number, { nullable: true })
+  cookTime?: number;
+
+  @Field(() => Number, { nullable: true })
+  servings?: number;
+
   @Field(() => String, { nullable: true })
   image?: string | null;
 }

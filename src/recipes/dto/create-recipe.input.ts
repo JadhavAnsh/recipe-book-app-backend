@@ -14,6 +14,18 @@ export class CreateRecipeInput {
   @Field()
   category: string;
 
+  @Field({ nullable: true })
+  categoryId?: string;
+
+  @Field(() => Number, { defaultValue: 0 })
+  prepTime: number;
+
+  @Field(() => Number, { defaultValue: 0 })
+  cookTime: number;
+
+  @Field(() => Number, { defaultValue: 1 })
+  servings: number;
+
   @Field(() => String, { nullable: true })
   image?: string;
 }

@@ -20,6 +20,10 @@ export class RecipesService {
       ingredients: doc.ingredients,
       steps: doc.steps,
       category: doc.category,
+      categoryId: doc.categoryId ?? null,
+      prepTime: doc.prepTime ?? 0,
+      cookTime: doc.cookTime ?? 0,
+      servings: doc.servings ?? 1,
       image: doc.image ?? null,
     } as Recipe;
   }
@@ -30,6 +34,10 @@ export class RecipesService {
       ingredients: createRecipeInput.ingredients,
       steps: createRecipeInput.steps,
       category: createRecipeInput.category,
+      categoryId: createRecipeInput.categoryId ?? null,
+      prepTime: createRecipeInput.prepTime ?? 0,
+      cookTime: createRecipeInput.cookTime ?? 0,
+      servings: createRecipeInput.servings ?? 1,
       image: createRecipeInput.image ?? null,
     });
     return this.mapDocToRecipe(created);
@@ -56,6 +64,10 @@ export class RecipesService {
             ...(updateRecipeInput.ingredients !== undefined && { ingredients: updateRecipeInput.ingredients }),
             ...(updateRecipeInput.steps !== undefined && { steps: updateRecipeInput.steps }),
             ...(updateRecipeInput.category !== undefined && { category: updateRecipeInput.category }),
+            ...(updateRecipeInput.categoryId !== undefined && { categoryId: updateRecipeInput.categoryId }),
+            ...(updateRecipeInput.prepTime !== undefined && { prepTime: updateRecipeInput.prepTime }),
+            ...(updateRecipeInput.cookTime !== undefined && { cookTime: updateRecipeInput.cookTime }),
+            ...(updateRecipeInput.servings !== undefined && { servings: updateRecipeInput.servings }),
             ...(updateRecipeInput.image !== undefined && { image: updateRecipeInput.image }),
           },
         },
