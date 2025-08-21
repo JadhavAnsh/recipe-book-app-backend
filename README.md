@@ -118,8 +118,6 @@ When authentication is added later:
 ## Development
 
 - **Linting**: `npm run lint`
-- **Testing**: `npm run test`
-- **E2E Testing**: `npm run test:e2e`
 - **Formatting**: `npm run format`
 
 ## Running with Docker (Optional)
