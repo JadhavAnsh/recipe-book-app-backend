@@ -33,5 +33,5 @@ export class Recipes {
 
 export type RecipeDocument = HydratedDocument<Recipes>;
 export const RecipeSchema = SchemaFactory.createForClass(Recipes);
-
+RecipeSchema.index({ category: 1 });
 

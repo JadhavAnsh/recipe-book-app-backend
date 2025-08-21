@@ -23,6 +23,11 @@ export class RecipesResolver {
     return this.recipesService.findOne(id);
   }
 
+  @Query(() => [Recipe], { name: 'recipesByCategory' })
+  findByCategory(@Args('categoryId', { type: () => ID }) categoryId: string) {
+    return this.recipesService.findByCategory(categoryId);
+  }
+
   @Mutation(() => Recipe)
   updateRecipe(@Args('updateRecipeInput') updateRecipeInput: UpdateRecipeInput) {
     return this.recipesService.update(updateRecipeInput.id, updateRecipeInput);
