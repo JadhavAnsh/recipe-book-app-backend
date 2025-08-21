@@ -24,10 +24,17 @@ A NestJS backend for the Recipe Book app, providing REST APIs for recipes and no
    ```
 
 2. **Set Environment Variables:**
-   Create a `.env` file in the root directory:
+   Create a `.env` file in the project root:
    ```env
+   # Required
    MONGODB_URI=mongodb://localhost:27017/recipe-book
    PORT=3000
+
+   # Optional: comma-separated list of allowed web origins for CORS
+   # Include your Expo dev origin while developing on web
+   # Example for Expo web on localhost and LAN:
+   # WEB_ORIGIN=http://localhost:8081,http://192.168.1.10:8081
+   WEB_ORIGIN=http://localhost:8081
    ```
 
 3. **Start Development Server:**
@@ -54,6 +61,10 @@ A NestJS backend for the Recipe Book app, providing REST APIs for recipes and no
 - **GET** `/notes/:id` - Get a specific note
 - **PUT** `/notes/:id` - Update a note
 - **DELETE** `/notes/:id` - Delete a note
+
+### CORS
+
+The server reads `WEB_ORIGIN` to decide which web origins are allowed. Requests without an origin (native apps, curl) are allowed by default. For Expo web, ensure your dev origin (e.g., `http://localhost:8081`) is present. Multiple origins can be specified, comma-separated.
 
 ## Tech Stack
 
@@ -88,6 +99,9 @@ Currently required:
 - `MONGODB_URI`: MongoDB connection string
 - `PORT`: Server port (default: 3000)
 
+Optional:
+- `WEB_ORIGIN`: Comma-separated list of allowed web origins for CORS
+
 When authentication is added later:
 - `FIREBASE_PROJECT_ID`
 - `FIREBASE_CLIENT_EMAIL`
@@ -107,3 +121,13 @@ When authentication is added later:
 - **Testing**: `npm run test`
 - **E2E Testing**: `npm run test:e2e`
 - **Formatting**: `npm run format`
+
+## Running with Docker (Optional)
+
+If you prefer Docker for MongoDB:
+
+```bash
+docker run --name recipe-mongo -p 27017:27017 -d mongo:6
+```
+
+Then use `MONGODB_URI=mongodb://localhost:27017/recipe-book` in your `.env`.
