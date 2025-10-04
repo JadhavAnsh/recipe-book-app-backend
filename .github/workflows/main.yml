@@ -2,7 +2,7 @@ name: Keep Render n8n Alive
 
 on:
   schedule:
-    - cron: '*/10 * * * *'  # Every 10 minutes
+    - cron: '0 */5 * * *'  # Every 5 hours
   workflow_dispatch:  # Allow manual run
 
 jobs:
