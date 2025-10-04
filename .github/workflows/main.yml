@@ -1,9 +1,9 @@
-name: Keep server alive
+name: Keep Render n8n Alive
 
 on:
   schedule:
-    - cron: '0 */5 * * *'  # Every 5 hours
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '*/10 * * * *'  # Every 10 minutes
+  workflow_dispatch:  # Allow manual run
 
 jobs:
   ping-server:
@@ -14,14 +14,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-          
+
       - name: Install dependencies
         run: pip install requests
-        
-      - name: Run keep-alive script
-        run: python main.py # or whatever your python file name is
+
+      - name: Ping Render backend
+        run: python main.py
